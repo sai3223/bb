@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MobileMart | Latest Smartphones</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+  body{background:#f9f9f9;color:#222;}
+  header{
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+      url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1500&q=80') center/cover;
+    color:#fff;text-align:center;padding:90px 20px;
+  }
+  header h1{font-size:2.5rem;margin-bottom:10px;}
+  header p{font-size:1.1rem;opacity:0.9;}
+
+  .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;padding:40px 10%;}
+  .product-card{
+    background:#fff;border-radius:12px;overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    transition:transform 0.3s,box-shadow 0.3s;
+  }
+  .product-card:hover{transform:translateY(-6px);box-shadow:0 6px 18px rgba(0,0,0,0.15);}
+  .product-card img{width:100%;height:220px;object-fit:cover;}
+  .info{padding:15px;}
+  .info h3{font-size:1.1rem;margin-bottom:5px;}
+  .info p{font-size:0.9rem;color:#666;margin-bottom:10px;}
+  .price{font-weight:600;margin-bottom:12px;}
+  button{
+    width:100%;padding:10px;border:none;border-radius:25px;
+    background:#111;color:#fff;font-size:1rem;cursor:pointer;
+    transition:background 0.3s;
+  }
+  button:hover{background:#444;}
+  footer{text-align:center;padding:15px;background:#111;color:#fff;font-size:0.9rem;}
+</style>
+</head>
+<body>
+  <header>
+    <h1>MobileMart</h1>
+    <p>Discover the latest smartphones at unbeatable prices</p>
+  </header>
+
+  <section class="products">
+    <div class="product-card" data-name="Pixel 9 Pro" data-price="₹84,999" data-img="https://via.placeholder.com/300x300?text=Pixel+9+Pro">
+      <img src="https://via.placeholder.com/300x300?text=Pixel+9+Pro">
+      <div class="info">
+        <h3>Pixel 9 Pro</h3>
+        <p>Next-gen AI camera with smooth Android experience.</p>
+        <div class="price">₹84,999</div>
+        <button onclick="buyNow(this)">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="iPhone 15 Pro" data-price="₹1,34,900" data-img="https://via.placeholder.com/300x300?text=iPhone+15+Pro">
+      <img src="https://via.placeholder.com/300x300?text=iPhone+15+Pro">
+      <div class="info">
+        <h3>iPhone 15 Pro</h3>
+        <p>Titanium design. A17 Pro chip. Ultimate performance.</p>
+        <div class="price">₹1,34,900</div>
+        <button onclick="buyNow(this)">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="Samsung Galaxy S24" data-price="₹89,999" data-img="https://via.placeholder.com/300x300?text=Galaxy+S24">
+      <img src="https://via.placeholder.com/300x300?text=Galaxy+S24">
+      <div class="info">
+        <h3>Galaxy S24</h3>
+        <p>Dynamic AMOLED 2X display with smart AI features.</p>
+        <div class="price">₹89,999</div>
+        <button onclick="buyNow(this)">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="OnePlus 12" data-price="₹64,999" data-img="https://via.placeholder.com/300x300?text=OnePlus+12">
+      <img src="https://via.placeholder.com/300x300?text=OnePlus+12">
+      <div class="info">
+        <h3>OnePlus 12</h3>
+        <p>Flagship power with smooth 120Hz AMOLED display.</p>
+        <div class="price">₹64,999</div>
+        <button onclick="buyNow(this)">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="Nothing Phone (2)" data-price="₹44,999" data-img="https://via.placeholder.com/300x300?text=Nothing+Phone+2">
+      <img src="https://via.placeholder.com/300x300?text=Nothing+Phone+2">
+      <div class="info">
+        <h3>Nothing Phone (2)</h3>
+        <p>Transparent design with a unique LED glyph interface.</p>
+        <div class="price">₹44,999</div>
+        <button onclick="buyNow(this)">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="Redmi Note 13 Pro" data-price="₹23,999" data-img="https://via.placeholder.com/300x300?text=Redmi+Note+13+Pro">
+      <img src="https://via.placeholder.com/300x300?text=Redmi+Note+13+Pro">
+      <div class="info">
+        <h3>Redmi Note 13 Pro</h3>
+        <p>Powerful performance with 200MP AI camera.</p>
+        <div class="price">₹23,999</div>
+        <button onclick="buyNow(this)">Buy Now</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2025 MobileMart. All rights reserved.</footer>
+
+  <script>
+    function buyNow(btn){
+      const card=btn.closest('.product-card');
+      const product={
+        name:card.dataset.name,
+        price:card.dataset.price,
+        img:card.dataset.img
+      };
+      localStorage.setItem('selectedProduct',JSON.stringify(product));
+      window.location.href='form.html';
+    }
+  </script>
+</body>
+</html>
